@@ -19,3 +19,8 @@
   * `$$ENV`
 * 自定义的serviceWork，custom-service-worker.ts
 
+## 运行
+* 开发   
+  `npm run start`
+* 生产环境build   
+  `npm run build`
