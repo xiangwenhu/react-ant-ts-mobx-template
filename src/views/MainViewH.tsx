@@ -1,8 +1,7 @@
 import React from "react";
 import { Layout, Icon } from "antd";
 import { observer, inject } from "mobx-react";
-import Image_LogDebug from "../images/log-debug.jpg";
-import LeftMenu from "../components/LeftMenu";
+import TopMenu from "../components/TopMenu";
 import Views from "./Views";
 import { IAuthStore } from "../stores/authStore";
 
@@ -15,16 +14,6 @@ interface IProps {
 @inject("authStore")
 @observer
 export default class MainView extends React.Component<IProps> {
-    state = {
-        collapsed: false
-    };
-
-    toggle = () => {
-        this.setState({
-            collapsed: !this.state.collapsed
-        });
-    };
-
     onLogout = () => {
         const { authStore } = this.props;
         if (authStore) {
@@ -45,52 +34,39 @@ export default class MainView extends React.Component<IProps> {
                     height: "100%"
                 }}
             >
-                <Sider
-                    trigger={null}
-                    collapsible
-                    collapsed={this.state.collapsed}
-                >
-                    <div className="logo">
-                        <img src={Image_LogDebug} height="100%" width="100%" />
-                    </div>
-                    <LeftMenu />
-                </Sider>
-                <Layout>
-                    <Header style={{ background: "#fff", padding: 0 }}>
-                        <Icon
-                            className="trigger"
-                            style={{
-                                marginLeft: 25
-                            }}
-                            type={
-                                this.state.collapsed
-                                    ? "menu-unfold"
-                                    : "menu-fold"
-                            }
-                            onClick={this.toggle}
-                        />
-                        <a
-                            href="javascript:void(0)"
-                            style={{
-                                position: "absolute",
-                                right: 35
-                            }}
-                            onClick={onLogout}
-                        >
-                            Logout
-                        </a>
-                    </Header>
-                    <Content
+                <Header style={{ position: "fixed", zIndex: 1, width: "100%" }}>
+                    <div className="logo" />
+                    <TopMenu />
+                    <a
+                        href="javascript:void(0)"
                         style={{
-                            margin: "24px 16px",
-                            padding: 24,
+                            position: "absolute",
+                            right: 52,
+                            top: 0,
+                        }}
+                        onClick={onLogout}
+                    >
+                        Logout
+                    </a>
+                </Header>
+                <Content
+                    style={{
+                        padding: "0 50px",
+                        marginTop: 64,
+                        display: "flex",
+                        flexDirection: "column"
+                    }}
+                >
+                    <div
+                        style={{
                             background: "#fff",
-                            minHeight: 280
+                            padding: 24,
+                            flex: "1 0 380px"
                         }}
                     >
                         <Views />
-                    </Content>
-                </Layout>
+                    </div>
+                </Content>
             </Layout>
         );
     }

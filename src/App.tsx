@@ -3,8 +3,8 @@ import { LocaleProvider, DatePicker, message } from "antd";
 // 由于 antd 组件的默认文案是英文，所以需要修改为中文
 import zhCN from "antd/lib/locale-provider/zh_CN";
 import { observer, inject } from "mobx-react";
-import MainViewV from "./views/MainViewV"; // 菜单垂直
-import MainViewH from "./views/MainViewH"; // 菜单水平
+import MainViewH from "./views/MainViewH"; // 菜单垂直
+import MainViewV from "./views/MainViewV"; // 菜单水平
 import "./App.css";
 import LoginView from "./views/LoginView";
 import { Router } from "react-router-dom";

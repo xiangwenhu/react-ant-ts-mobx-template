@@ -1,5 +1,6 @@
 import React from "react";
-import { Menu } from "antd";
+import { Menu, Icon } from 'antd'
+import { Link } from 'react-router-dom'
 
 export default class extends React.Component {
     render() {
@@ -7,12 +8,22 @@ export default class extends React.Component {
             <Menu
                 theme="dark"
                 mode="horizontal"
-                defaultSelectedKeys={["2"]}
+                defaultSelectedKeys={["1"]}
                 style={{ lineHeight: "64px" }}
+                className="topMenu"
             >
-                <Menu.Item key="1">nav 1</Menu.Item>
-                <Menu.Item key="2">nav 2</Menu.Item>
-                <Menu.Item key="3">nav 3</Menu.Item>
+                <Menu.Item key="1">
+                    <Icon type="user" />
+                    <span>                       
+                        <Link to="/">主页</Link>
+                    </span>
+                </Menu.Item>
+                <Menu.Item key="2">
+                    <Icon type="setting" />
+                    <span>
+                        <Link to="/settings">设置</Link>
+                    </span>
+                </Menu.Item>
             </Menu>
         );
     }
