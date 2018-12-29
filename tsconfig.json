@@ -16,6 +16,5 @@
         "isolatedModules": true,
         "experimentalDecorators": true
     },
-    "include": ["src"],
-    "exclude": ["src/custom-service-worker.js"]
+    "include": ["src"]
 }
