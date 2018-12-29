@@ -1,5 +1,6 @@
 import React from "react";
-import { Layout, Menu, Icon, Button } from "antd";
+import { Layout, Icon } from "antd";
+import { observer, inject } from "mobx-react";
 import Image_LogDebug from "../images/log-debug.jpg";
 import LeftMenu from "../components/LeftMenu";
 import Views from "./Views";
@@ -8,9 +9,11 @@ import { IAuthStore } from "../stores/authStore";
 const { Header, Sider, Content } = Layout;
 
 interface IProps {
-    authStore: IAuthStore;
+    authStore?: IAuthStore;
 }
 
+@inject("authStore")
+@observer
 export default class MainView extends React.Component<IProps> {
     state = {
         collapsed: false
@@ -24,11 +27,13 @@ export default class MainView extends React.Component<IProps> {
 
     onLogout = () => {
         const { authStore } = this.props;
-        authStore.setAuth({
-            logined: false,
-            phone: null,
-            userName: null
-        });
+        if (authStore) {
+            authStore.setAuth({
+                logined: false,
+                phone: null,
+                userName: null
+            });
+        }
     };
 
     render() {

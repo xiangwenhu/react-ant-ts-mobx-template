@@ -6,7 +6,7 @@ import { IAuthStore } from "../stores/authStore";
 const FormItem = Form.Item;
 
 interface IProps {
-    authStore: IAuthStore;
+    authStore?: IAuthStore;
 }
 
 class LoginForm extends React.Component<IProps & FormComponentProps> {
@@ -21,7 +21,7 @@ class LoginForm extends React.Component<IProps & FormComponentProps> {
                     phone: values.userName,
                     userName: values.userName
                 };
-                authStore.setAuth(authStoreValue);
+                authStore!.setAuth(authStoreValue);
             }
         });
     };
