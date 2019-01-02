@@ -44,6 +44,7 @@ export default class MainView extends React.Component<IProps> {
                 style={{
                     height: "100%"
                 }}
+                className="vertical"
             >
                 <Sider
                     trigger={null}

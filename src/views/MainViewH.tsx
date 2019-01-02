@@ -33,6 +33,7 @@ export default class MainView extends React.Component<IProps> {
                 style={{
                     height: "100%"
                 }}
+                className="horizontal"
             >
                 <Header style={{ position: "fixed", zIndex: 1, width: "100%" }}>
                     <div className="logo" />
@@ -42,7 +43,7 @@ export default class MainView extends React.Component<IProps> {
                         style={{
                             position: "absolute",
                             right: 52,
-                            top: 0,
+                            top: 0
                         }}
                         onClick={onLogout}
                     >

@@ -3,15 +3,6 @@
     height: 100%;
 }
 
-.logo {
-    height: 64px;
-    text-align: center;
-}
-
-.logo img {
-    border: 2px red solid;
-}
-
 .leftMenu a, .topMenu a {
     color: #FFF
 }
@@ -26,10 +17,15 @@
     margin: auto
 }
 
-.logo {
+.horizontal .logo {
     width: 120px;
     height: 31px;
     background: rgba(255, 255, 255, .2);
     margin: 16px 24px 16px 0;
     float: left;
+}
+
+.vertical .logo {
+    height: 64px;
+    text-align: center;
 }
